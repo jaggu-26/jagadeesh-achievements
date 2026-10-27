@@ -7,13 +7,13 @@
 <meta name="description" content="Performance achievements of Jagadeesh, Product Designer — AI-assisted design workflows, prototype infrastructure, design systems and product ownership." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #F6F5F1;
-    --bg-2: #EFEDE7;
+    --bg: #F0F2F7;      /* GeoServe page background */
+    --bg-2: #F1F5F9;    /* GeoServe Grey/50 */
     --surface: #FFFFFF;
-    --surface-2: #F9F8F5;
+    --surface-2: #F7FAFC; /* GeoServe Grey/10 */
     --line: rgba(17, 20, 28, 0.09);
     --line-strong: rgba(17, 20, 28, 0.16);
     --text: #11141C;
@@ -54,11 +54,12 @@
   html { scroll-behavior: smooth; }
   body {
     background: var(--bg); color: var(--text);
-    font-family: "Inter Tight", system-ui, sans-serif; font-size: 16px; line-height: 1.55;
+    font-family: "Manrope", system-ui, sans-serif; font-size: 16px; line-height: 1.55;
     -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
   a { color: inherit; text-decoration: none; }
   button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  h1, h2, h3, h4, .stat .n, .brand-mark { font-family: "Inter Tight", system-ui, sans-serif; }
   .serif { font-family: "Instrument Serif", serif; font-weight: 400; font-style: italic; letter-spacing: -0.01em; }
   .mono { font-family: "JetBrains Mono", monospace; }
   .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -106,12 +107,11 @@
     background: var(--surface); border: 1.5px dashed var(--line-strong); color: var(--text-3); box-shadow: var(--shadow); }
   .avatar::before { content: ""; position: absolute; inset: -3px; border-radius: 50%; padding: 3px; background: var(--grad);
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: .55; }
-  .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; transform: scale(1.12); transform-origin: 64% 34%; filter: contrast(1.05); }
+  .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; transform: scale(-1.12, 1.12); transform-origin: 50.8% 34%; /* mirrored so the face looks toward the name */ filter: contrast(1.05); }
   .avatar:has(img) { border-style: solid; }
   .avatar .ph { display: grid; justify-items: center; gap: 4px; font-size: 11px; }
   .script { font-family: "Caveat", cursive; font-weight: 700; font-size: clamp(26px, 3vw, 36px); line-height: 1.05; color: var(--text); transform: rotate(-4deg); max-width: 240px; }
   .hero-side { position: relative; }
-  .hand-arrow { position: absolute; top: calc(100% + 16px); right: 54%; width: 240px; transform: rotate(14deg); transform-origin: 90% 10%; height: auto; color: var(--accent); pointer-events: none; }
   .script .grad-text { display: inline; white-space: nowrap; }
   .hero p.lede { font-size: clamp(17px, 2vw, 21px); color: var(--text-2); max-width: 640px; }
   .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
@@ -123,6 +123,94 @@
   .stat .n { font-size: 44px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
   .stat .l { color: var(--text-3); font-size: 13px; margin-top: 8px; }
 
+
+  /* ---------- Hero: modern layer ---------- */
+  .hero-glow { filter: blur(60px); inset: -10% -10% auto; height: 760px; background: none; }
+  .blob { position: absolute; border-radius: 50%; opacity: .55; }
+  .blob.b1 { width: 46%; aspect-ratio: 1; left: 2%; top: 4%; background: color-mix(in srgb, var(--gs-brand) 40%, transparent); }
+  .blob.b2 { width: 38%; aspect-ratio: 1; right: 4%; top: -6%; background: color-mix(in srgb, var(--accent-2) 34%, transparent); }
+  .blob.b3 { width: 30%; aspect-ratio: 1; left: 42%; top: 34%; background: color-mix(in srgb, var(--accent-3) 26%, transparent); }
+  .hero-grid.hot { --hx: 50%; --hy: 30%; --hot: 0;
+    background-image: linear-gradient(color-mix(in srgb, var(--gs-brand) 45%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--gs-brand) 45%, transparent) 1px, transparent 1px);
+    mask-image: radial-gradient(220px circle at var(--hx) var(--hy), #000, transparent 70%); -webkit-mask-image: radial-gradient(220px circle at var(--hx) var(--hy), #000, transparent 70%);
+    opacity: var(--hot); transition: opacity .4s ease; }
+  .hero-grain { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .07; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  :root[data-theme="dark"] .hero-grain { mix-blend-mode: screen; opacity: .05; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero-grain { mix-blend-mode: screen; opacity: .05; } }
+
+  .eyebrow { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+
+  .h1-anim .ln { display: block; overflow: hidden; padding: 0 .12em .28em 0; margin-bottom: -.28em; }
+  .h1-anim .ln > span { display: inline-block; }
+  /* gradient text only paints inside its box: extend it so descenders (g) and italic overhang aren't cut */
+  .h1-anim .grad-text { white-space: nowrap; } /* keeps "Product Designer." on one line */
+  .h1-anim .grad-text { padding: 0 .1em .24em 0; margin: 0 -.1em -.24em 0; }
+  .grad-flow { background-size: 220% 100%; }
+
+  .avatar-wrap { position: relative; width: 148px; height: 148px; }
+  .avatar-ring { position: absolute; inset: -7px; border-radius: 50%; padding: 2px; pointer-events: none;
+    background: conic-gradient(from var(--ring, 0deg), var(--gs-brand), var(--accent-2), transparent 40%, transparent 60%, var(--gs-brand));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .avatar::before { display: none; }
+  .avatar-badge { position: absolute; right: -26px; bottom: 8px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; color: var(--text); background: color-mix(in srgb, var(--surface) 78%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--gs-border); box-shadow: var(--shadow); white-space: nowrap; }
+  .avatar-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 22%, transparent); }
+
+  .stats { background: color-mix(in srgb, var(--line) 80%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: var(--shadow); }
+  .stat { background: color-mix(in srgb, var(--surface) 72%, transparent); }
+  .stat .n { font-variant-numeric: tabular-nums; }
+
+  @property --ring { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+  @media (prefers-reduced-motion: no-preference) {
+    .blob.b1 { animation: drift1 18s ease-in-out infinite alternate; }
+    .blob.b2 { animation: drift2 22s ease-in-out infinite alternate; }
+    .blob.b3 { animation: drift3 16s ease-in-out infinite alternate; }
+    @keyframes drift1 { to { transform: translate(18%, 14%) scale(1.15); } }
+    @keyframes drift2 { to { transform: translate(-22%, 18%) scale(.9); } }
+    @keyframes drift3 { to { transform: translate(-30%, -20%) scale(1.2); } }
+    .h1-anim .ln > span { transform: translateY(110%); animation: lineUp .9s cubic-bezier(.2,.8,.2,1) forwards; }
+    .h1-anim .ln:nth-child(2) > span { animation-delay: .12s; }
+    @keyframes lineUp { to { transform: none; } }
+    .h1-anim .ln:nth-child(2) > .grad-flow { animation: lineUp .9s cubic-bezier(.2,.8,.2,1) .12s forwards, gradFlow 8s ease-in-out 1s infinite alternate; }
+    @keyframes gradFlow { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+    .avatar-ring { animation: spin 6s linear infinite; }
+    @keyframes spin { to { --ring: 360deg; } }
+    .avatar-badge { animation: float 4s ease-in-out infinite; }
+    @keyframes float { 50% { transform: translateY(-4px); } }
+  }
+
+  /* ---------- Hero: lighter light-mode backdrop ---------- */
+  :root { --hero-wash: linear-gradient(180deg, #FFFFFF 0%, color-mix(in srgb, #FFFFFF 55%, var(--bg)) 60%, var(--bg) 100%);
+    --hero-blob: .22; --hero-grid-line: rgba(14,26,51,.045); --hero-grain: .03; }
+  :root[data-theme="dark"] { --hero-wash: none; --hero-blob: .55; --hero-grid-line: var(--line); --hero-grain: .05; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --hero-wash: none; --hero-blob: .55; --hero-grid-line: var(--line); --hero-grain: .05; } }
+  .hero { background: var(--hero-wash); }
+  .blob { opacity: var(--hero-blob); }
+  .hero-grid:not(.hot) { background-image: linear-gradient(var(--hero-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px); }
+  .hero-grain, :root[data-theme="dark"] .hero-grain { opacity: var(--hero-grain); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero-grain { opacity: var(--hero-grain); } }
+
+
+  /* Wireframe skill visual */
+  .tok { display: grid; gap: 10px; margin-bottom: 16px; }
+  .tok-row { display: grid; grid-template-columns: 120px 1fr 62px; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-2); }
+  .tok-row b { text-align: right; font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--text); }
+  .tok-bar { height: 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--gs-border); overflow: hidden; }
+  .tok-bar i { display: block; height: 100%; width: var(--w); border-radius: inherit; background: color-mix(in srgb, var(--text-3) 55%, transparent); }
+  .tok-row.lite .tok-bar i { background: var(--gs-brand); }
+  .tok-row.lite b { color: var(--gs-brand); }
+  .wf { border: 1.5px dashed #C7CDD4; border-radius: 12px; background: #F8F9FA; padding: 10px; display: grid; gap: 8px; }
+  .wf i { display: block; background: #E5E7EB; border-radius: 4px; height: 8px; }
+  .wf-top { display: flex; gap: 6px; align-items: center; } .wf-top i { width: 30%; } .wf-top i.s { width: 18%; margin-right: auto; } .wf-top i.btn { width: 14%; height: 16px; background: #D9DEE3; }
+  .wf-body { display: grid; grid-template-columns: 22% 1fr; gap: 8px; }
+  .wf-side { display: grid; gap: 6px; align-content: start; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px; padding: 8px; }
+  .wf-main { display: grid; gap: 8px; }
+  .wf-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; } .wf-kpis i { height: 34px; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 6px; }
+  .wf-card { display: grid; gap: 6px; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px; padding: 10px; } .wf-card i.l { width: 40%; height: 10px; background: #D9DEE3; } .wf-card i.m { width: 60%; }
+  :root[data-theme="dark"] .wf { filter: invert(.88) hue-rotate(180deg); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .wf { filter: invert(.88) hue-rotate(180deg); } }
   /* ---------- Section heads ---------- */
   section { padding: 72px 0; }
   .sec-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
@@ -222,7 +310,7 @@
   /* Visual: products */
   .orbit { position: relative; aspect-ratio: 1.25; display: grid; place-items: center; }
   .orbit .ring { position: absolute; border: 1px dashed var(--line-strong); border-radius: 50%; }
-  .core { width: 132px; height: 132px; border-radius: 50%; background: var(--grad); color: #fff; display: grid; place-items: center; text-align: center; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; box-shadow: 0 20px 50px -18px color-mix(in srgb, var(--accent) 70%, transparent); z-index: 2; line-height: 1.1; }
+  .core { width: 132px; height: 132px; border-radius: 50%; background: var(--gs-brand); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; box-shadow: 0 20px 50px -18px color-mix(in srgb, var(--gs-brand) 70%, transparent); z-index: 2; line-height: 1.1; }
   .core small { display: block; font-size: 10.5px; font-weight: 500; opacity: .85; letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
   .sat { position: absolute; padding: 9px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line-strong); font-size: 13px; font-weight: 600; box-shadow: var(--shadow); white-space: nowrap; z-index: 2; }
 
@@ -413,11 +501,10 @@
   @media (max-width: 640px) {
     .hero-title { flex-direction: column-reverse; align-items: flex-start; gap: 8px; }
     .hero-side { flex-direction: row; text-align: left; margin-top: 12px; }
-    .avatar { width: 88px; height: 88px; }
+    .avatar, .avatar-wrap { width: 88px; height: 88px; flex-shrink: 0; }
+    .avatar-badge { right: -4px; bottom: -8px; font-size: 10.5px; padding: 3px 8px; }
     .avatar .ph { font-size: 0; }
     .script { font-size: 26px; }
-    .hero-side { margin-bottom: 44px; }
-    .hand-arrow { width: 80px; right: auto; left: 100px; top: calc(100% + 6px); transform: rotate(-40deg); }
     .wrap { padding: 0 16px; }
     .hero { padding: 64px 0 48px; }
     .stats { grid-template-columns: repeat(2, 1fr); margin-top: 40px; }
@@ -435,6 +522,156 @@
     .next { padding: 32px 20px; }
     .core { width: 104px; height: 104px; font-size: 17px; }
     .sat { font-size: 11.5px; padding: 7px 10px; }
+  }
+
+  /* ── GeoServe design system: buttons + icons ── */
+  :root {
+    --gs-brand: #1852FE; --gs-brand-soft: #EAF1FE; --gs-border: #E4E9F2;
+    --gs-icon-bg: #F4F7FB; --gs-text-dim: #626E83; --gs-ghost-hover: #F1F5F9;
+    --gs-cta: linear-gradient(135deg, #1852FE, #3F8DFF);
+    --gs-cta-shadow: 0 6px 18px rgba(31,111,235,0.32);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --gs-brand: #3B81F6; --gs-brand-soft: rgba(59,129,246,0.16); --gs-border: rgba(255,255,255,0.10);
+      --gs-icon-bg: rgba(255,255,255,0.06); --gs-text-dim: #A9AEBD; --gs-ghost-hover: rgba(255,255,255,0.08);
+    }
+  }
+  :root[data-theme="dark"] {
+    --gs-brand: #3B81F6; --gs-brand-soft: rgba(59,129,246,0.16); --gs-border: rgba(255,255,255,0.10);
+    --gs-icon-bg: rgba(255,255,255,0.06); --gs-text-dim: #A9AEBD; --gs-ghost-hover: rgba(255,255,255,0.08);
+  }
+  :focus-visible { outline: 2px solid var(--gs-brand); outline-offset: 2px; }
+
+  /* Header: GeoServe grey */
+  :root { --gs-header: #F1F5F9; --gs-header-line: #E2E8F0; }
+  :root[data-theme="dark"] { --gs-header: #0A0B10; --gs-header-line: rgba(255,255,255,0.07); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --gs-header: #0A0B10; --gs-header-line: rgba(255,255,255,0.07); } }
+  nav.top { background: color-mix(in srgb, var(--gs-header) 88%, transparent); border-bottom-color: var(--gs-header-line); }
+
+  /* Point ticks: Marine blue, filled on hover */
+  .check { background: transparent; border: 1.5px solid var(--gs-brand); color: var(--gs-brand); border-radius: 6px; }
+  .points li:hover .check { background: var(--gs-brand); border-color: var(--gs-brand); color: #fff; transform: none; }
+
+  /* Ghost buttons: nav links, filters */
+  .nav-links a, .filters button {
+    height: 38px; padding: 0 18px; display: inline-flex; align-items: center; border-radius: 9px;
+    font-size: 13px; font-weight: 600; color: var(--text-2); border: 1px solid transparent;
+    transition: background .15s cubic-bezier(.4,0,.2,1), color .15s, border-color .15s; transform: none !important; box-shadow: none !important;
+  }
+  .nav-links a:hover { background: var(--gs-brand-soft); color: var(--gs-brand); }
+  .filters button { background: var(--surface); border-color: var(--gs-border); }
+  .filters button:not(.on):hover { background: var(--gs-ghost-hover); color: var(--text); }
+  /* Primary button: active filter */
+  .filters button.on, .filters button.on:hover { background: var(--gs-brand); border-color: var(--gs-brand); color: #fff; }
+  .filters button.on:hover { opacity: .9; }
+
+  /* Icon buttons: theme toggle, card arrow */
+  .theme-btn, .b-arrow {
+    border-radius: 9px; background: var(--gs-icon-bg); border: 1px solid var(--gs-border); color: var(--gs-text-dim);
+    transition: border-color .15s cubic-bezier(.4,0,.2,1), color .15s, background .15s !important; transform: none !important;
+  }
+  .theme-btn { width: 38px; height: 38px; }
+  .theme-btn:hover { border-color: var(--gs-brand); color: var(--gs-brand); background: var(--gs-icon-bg); }
+  .b-card:hover .b-arrow { background: var(--gs-brand); border-color: var(--gs-brand); color: #fff; }
+
+  /* Icon containers: Blue Box */
+  .b-icon { border-radius: 8px; background: var(--gs-brand-soft); color: var(--gs-brand);
+    transition: background .25s cubic-bezier(.4,0,.2,1), color .25s !important; transform: none !important; }
+  .b-card:hover .b-icon, .t-card:hover .b-icon { background: var(--gs-brand); color: #fff; }
+  .icons span { border-radius: 7px; background: var(--gs-icon-bg); border-color: var(--gs-border); color: var(--gs-brand); }
+  .brand-mark { background: var(--gs-cta); border-radius: 8px; }
+
+  /* Inline icons inside visuals */
+  .panel h5 svg, .flow .step svg { color: var(--gs-brand); }
+  .d-visual > div > svg { color: var(--gs-brand); }
+
+  /* Buttons inside the mock UIs */
+  .btn-demo { height: 30px; align-items: center; padding: 0 14px; border-radius: 9px; font-size: 12px; font-weight: 600; transition: opacity .15s !important; transform: none !important; box-shadow: none !important; }
+  .btn-demo.primary { background: var(--gs-brand); color: #fff; border: 1px solid var(--gs-brand); }
+  .btn-demo.ghost { background: var(--surface); color: var(--text-2); border: 1px solid var(--gs-border); }
+  .btn-demo:hover { opacity: .9; }
+  .copy-btn { border-radius: 12px; background: var(--gs-cta); color: #fff; box-shadow: var(--gs-cta-shadow); }
+
+  /* ---------- Concept 3: live AI demo hero ---------- */
+  .hero-v3 { padding: 88px 0 72px; }
+  .v3-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+  .v3-h1 { font-size: clamp(44px, 12vw, 80px) !important; margin: 24px 0 20px !important; }
+  .hero .v3-copy p.lede { max-width: 520px; font-size: 18px; }
+  .v3-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .btn-gs { height: 44px; padding: 0 20px; display: inline-flex; align-items: center; gap: 8px; border-radius: 9px; font-size: 14px; font-weight: 600; transition: opacity .15s, background .15s, border-color .15s, color .15s; }
+  .btn-gs.primary { background: var(--gs-brand); color: #fff; border: 1px solid var(--gs-brand); box-shadow: var(--gs-cta-shadow); }
+  .btn-gs.primary:hover { opacity: .9; }
+  .btn-gs.ghost { background: var(--surface); color: var(--text-2); border: 1px solid var(--gs-border); }
+  .btn-gs.ghost:hover { border-color: var(--gs-brand); color: var(--gs-brand); }
+  .v3-me { display: flex; align-items: center; gap: 14px; margin-top: 32px; }
+  .v3-me b { display: block; font-size: 15px; font-weight: 700; }
+  .v3-me b + b { font-size: 14px; }
+  .v3-me span { display: block; font-size: 13px; color: var(--text-3); }
+  .avatar-wrap.sm, .avatar-wrap.sm .avatar { width: 52px; height: 52px; }
+  .avatar-wrap.sm .avatar-ring { inset: -4px; }
+
+  .demo { position: relative; border-radius: 18px; border: 1px solid var(--gs-border); background: color-mix(in srgb, var(--surface) 78%, transparent);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 30px 80px -30px color-mix(in srgb, var(--gs-brand) 45%, transparent), var(--shadow); overflow: hidden; }
+  .demo-bar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--gs-border); font-size: 12.5px; color: var(--text-3); }
+  .dots { display: flex; gap: 6px; } .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--gs-border); }
+  .demo-title { flex: 1; font-weight: 600; }
+  .demo-live { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--good); }
+  .demo-live .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); animation: pulse 2s infinite; box-shadow: 0 0 0 0 color-mix(in srgb, var(--good) 60%, transparent); }
+  .demo-body { padding: 18px; display: grid; gap: 14px; }
+  .prompt-row { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--gs-brand); background: var(--surface);
+    box-shadow: 0 0 0 4px var(--gs-brand-soft); font-size: 15px; font-weight: 500; }
+  .prompt-ico { color: var(--gs-brand); font-size: 16px; }
+  .caret { width: 2px; height: 18px; background: var(--gs-brand); margin-left: -6px; animation: blink 1s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .d-steps { list-style: none; display: grid; gap: 6px; font-size: 13px; color: var(--text-3); }
+  .d-steps li { display: flex; align-items: center; gap: 8px; opacity: .35; transition: opacity .3s, color .3s; }
+  .d-steps li::before { content: ""; width: 16px; height: 16px; border-radius: 5px; border: 1.5px solid var(--gs-border); flex-shrink: 0; transition: .3s;
+    background: center / 10px no-repeat; }
+  .d-steps li.run { opacity: 1; color: var(--text-2); }
+  .d-steps li.run::before { border-color: var(--gs-brand); border-top-color: transparent; border-radius: 50%; animation: spin2 .8s linear infinite; }
+  .d-steps li.done { opacity: 1; color: var(--text); }
+  .d-steps li.done::before { background-color: var(--gs-brand); border-color: var(--gs-brand); animation: none; border-radius: 5px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E"); }
+  @keyframes spin2 { to { transform: rotate(360deg); } }
+
+  .proto { position: relative; border-radius: 12px; border: 1px solid var(--gs-border); background: var(--surface); padding: 14px; display: grid; gap: 12px;
+    opacity: .35; transform: translateY(6px) scale(.98); transition: opacity .5s, transform .6s cubic-bezier(.2,.8,.2,1); }
+  .proto.on { opacity: 1; transform: none; }
+  .p-head { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; }
+  .p-logo { width: 18px; height: 18px; border-radius: 5px; background: var(--gs-cta); }
+  .p-title { flex: 1; }
+  .p-chip { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+  .p-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .p-kpis div { border-radius: 8px; background: var(--surface-2); border: 1px solid var(--gs-border); padding: 8px 10px; }
+  .p-kpis small { display: block; font-size: 10.5px; color: var(--text-3); }
+  .p-kpis b { font-size: 15px; font-variant-numeric: tabular-nums; }
+  .p-chart { height: 74px; display: flex; align-items: flex-end; gap: 6px; padding: 0 2px; border-bottom: 1px dashed var(--gs-border); }
+  .p-chart i { flex: 1; height: 8%; border-radius: 4px 4px 0 0; background: color-mix(in srgb, var(--gs-brand) 22%, transparent); transition: height .7s cubic-bezier(.2,.8,.2,1); }
+  .p-chart i:nth-child(8) { background: var(--gs-brand); }
+  .proto.charted .p-chart i { height: var(--h); }
+  .proto.charted .p-chart i:nth-child(2) { transition-delay: .05s } .proto.charted .p-chart i:nth-child(3) { transition-delay: .1s } .proto.charted .p-chart i:nth-child(4) { transition-delay: .15s }
+  .proto.charted .p-chart i:nth-child(5) { transition-delay: .2s } .proto.charted .p-chart i:nth-child(6) { transition-delay: .25s } .proto.charted .p-chart i:nth-child(7) { transition-delay: .3s } .proto.charted .p-chart i:nth-child(8) { transition-delay: .35s }
+  .p-inspect { position: absolute; inset: 6px; border: 1.5px dashed var(--gs-brand); border-radius: 9px; pointer-events: none; opacity: 0; transition: opacity .4s; }
+  .p-inspect span { position: absolute; top: -11px; left: 10px; font-size: 10.5px; font-weight: 600; color: #fff; background: var(--gs-brand); padding: 2px 8px; border-radius: 6px; font-family: "JetBrains Mono", monospace; }
+  .proto.inspect .p-inspect { opacity: 1; }
+  .d-urls { display: flex; gap: 8px; flex-wrap: wrap; }
+  .d-url { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 9px; font-size: 12px; font-family: "JetBrains Mono", monospace; border: 1px solid var(--gs-border);
+    background: var(--surface); color: var(--text-2); opacity: 0; transform: translateY(8px) scale(.96); transition: opacity .4s, transform .5s cubic-bezier(.34,1.56,.64,1); max-width: 100%; overflow: hidden; }
+  .d-url b { font-family: "Manrope", sans-serif; font-size: 11px; padding: 1px 7px; border-radius: 6px; color: #fff; background: var(--gs-brand); }
+  .d-url.biz b { background: var(--warn); }
+  .d-url > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .d-urls.on .d-url { opacity: 1; transform: none; }
+  .d-urls.on .d-url.biz { transition-delay: .15s; }
+
+  .stats.proof { grid-template-columns: repeat(4, 1fr); margin-top: 56px; }
+  .demo.static .proto { opacity: 1; transform: none; } .demo.static .d-urls .d-url { opacity: 1; transform: none; } .demo.static .p-chart i { height: var(--h); }
+
+  @media (max-width: 980px) { .v3-grid { grid-template-columns: 1fr; gap: 40px; } }
+  @media (max-width: 640px) {
+    .hero-v3 { padding: 48px 0 40px; }
+    .stats.proof { grid-template-columns: 1fr 1fr; } .stats.proof .stat { padding: 16px 12px; } .stats.proof .stat .n { font-size: 26px; } .stats.proof .stat .l { font-size: 11.5px; }
+    .prompt-row { font-size: 13.5px; }
   }
 </style>
 </head>
@@ -455,37 +692,63 @@
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <div class="hero-glow"></div>
-  <div class="hero-grid"></div>
+<header class="hero hero-v3" id="top">
+  <div class="hero-glow" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-grid hot" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
   <div class="wrap">
-    <span class="eyebrow reveal"><span class="pulse"></span>Performance achievements · 2026</span>
-    <div class="hero-title">
-      <h1 class="reveal">Jagadeesh<br/><span class="serif grad-text">Product Designer.</span></h1>
-      <div class="hero-side reveal">
-        <!-- Photo: save your picture as photo.jpg next to index.html -->
-        <div class="avatar">
-          <span class="ph">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
-            Your photo
-          </span>
-          <img src="photo.jpg" alt="Jagadeesh" onerror="this.remove()" />
+    <div class="v3-grid">
+      <div class="v3-copy">
+        <span class="eyebrow"><span class="pulse"></span>Performance achievements · 2026</span>
+        <h1 class="h1-anim v3-h1">
+          <span class="ln"><span>Jagadeesh</span></span>
+          <span class="ln"><span class="serif grad-text grad-flow">AI Augmented<br />Product Designer.</span></span>
+        </h1>
+        <p class="lede">Design that ships faster. I build products, the systems behind them, and AI-powered workflows that take designers, engineers and business teams from idea to a live, shareable prototype.</p>
+        <div class="v3-cta">
+          <a class="btn-gs primary" href="#highlights">See the achievements <span aria-hidden="true">→</span></a>
+          <a class="btn-gs ghost" href="https://geoservedmcc.github.io/geoserves-product-design/live-urls-landing/" target="_blank" rel="noopener">Open prototype hub</a>
         </div>
-        <p class="script">Here are my <span class="grad-text">top-notch</span> achievements</p>
-        <svg class="hand-arrow" viewBox="0 0 220 120" fill="none" aria-hidden="true">
-          <path d="M200 8 C 205 70, 120 105, 20 50" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-          <path d="M31 69 L 20 50 L 42 49.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+        <div class="v3-me">
+          <div class="avatar-wrap sm"><span class="avatar-ring" aria-hidden="true"></span>
+            <div class="avatar"><img src="photo.jpg" alt="Jagadeesh" onerror="this.remove()" /></div>
+          </div>
+          <div><b>Primary owner · Perform</b><b>Also contributing to Connect, Voyage Optimisation, GeoOne &amp; FleetIQ</b></div>
+        </div>
+      </div>
+
+      <div class="demo" aria-label="Animated demo: an idea becomes a live prototype" role="img">
+        <div class="demo-bar"><span class="dots"><i></i><i></i><i></i></span><span class="demo-title">Claude · GeoServe design skill</span><span class="demo-live"><span class="dot"></span>Live</span></div>
+        <div class="demo-body">
+          <div class="prompt-row">
+            <span class="prompt-ico" aria-hidden="true">✦</span>
+            <span class="prompt-text" id="dPrompt"></span><span class="caret" aria-hidden="true"></span>
+          </div>
+          <ul class="d-steps" id="dSteps">
+            <li>Applying GeoServe design system</li>
+            <li>Building components &amp; charts</li>
+            <li>Publishing to the prototype hub</li>
+          </ul>
+          <div class="proto" id="dProto">
+            <div class="p-head"><span class="p-logo"></span><span class="p-title" id="dTitle">Vessel performance</span></div>
+            <div class="p-kpis">
+              <div><small>Speed</small><b data-v="12.4 kn">—</b></div>
+              <div><small>Fuel / day</small><b data-v="28.6 t">—</b></div>
+              <div><small>CII</small><b data-v="B">—</b></div>
+            </div>
+            <div class="p-chart"><i style="--h:38%"></i><i style="--h:62%"></i><i style="--h:48%"></i><i style="--h:80%"></i><i style="--h:56%"></i><i style="--h:72%"></i><i style="--h:44%"></i><i style="--h:90%"></i></div>
+            <div class="p-inspect"><span>Card · radius 12 · padding 16</span></div>
+          </div>
+          <div class="d-urls" id="dUrls">
+            <span class="d-url dev"><b>Dev</b><span id="dDev">…/perform/vessel-performance</span></span>
+            <span class="d-url biz"><b>Business</b><span>expires in 7 days</span></span>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="lede reveal">Design that ships faster. I build products, the systems behind them, and AI-powered workflows that take designers, engineers and business teams from idea to a live, shareable prototype.</p>
-    <div class="hero-meta reveal">
-      <span class="tag">AI-assisted design</span>
-      <span class="tag">Design systems</span>
-      <span class="tag">Prototype infrastructure</span>
-      <span class="tag neutral">Primary owner · Perform</span>
-    </div>
-    <div class="stats reveal" id="stats"></div>
+
+    <div class="stats proof" id="stats"></div>
   </div>
 </header>
 
@@ -611,7 +874,7 @@ const ACHIEVEMENTS = [
     short: "Perform Analytics handoff",
     category: "Product",
     icon: "chart",
-    size: 3,
+    size: 2,
     summary: "Perform Analytics is a large, feature-heavy module. I took it through business sign-off, and engineering built it straight from my prototype, which shows every asset, colour and icon in place.",
     points: [
       ["Delivered to business:", "the full analytics module was approved on a working, clickable prototype."],
@@ -626,7 +889,7 @@ const ACHIEVEMENTS = [
     short: "Conversational AI Dashboard",
     category: "AI",
     icon: "chat",
-    size: 3,
+    size: 2,
     summary: "I came up with the idea for a dashboard you talk to: users ask questions and get answers as charts and insights. I built it with two AI tools working side by side, Figma Make and Claude, each doing an equal share of the work.",
     points: [
       ["Figma Make:", "AI-generated layouts, visual direction and interaction ideas, explored and refined quickly on the design canvas."],
@@ -634,6 +897,23 @@ const ACHIEVEMENTS = [
       ["Together:", "the two tools fed each other, turning a new idea into a dashboard users talk to, not just a set of static views."]
     ],
     impact: [["Figma Make", "design & interaction"], ["Claude", "advanced features"], ["Natural language", "→ charts"]]
+  },
+  {
+    id: "wireframe-skill",
+    title: "Wireframe skill: low-token ideation for PMs and business teams",
+    short: "Wireframe skill for low-token ideation",
+    category: "AI",
+    icon: "wire",
+    size: 2,
+    visual: "wire",
+    summary: "A lightweight companion to the design skill, built for product managers and business teams. It turns a feature idea into a greyscale, low-fidelity wireframe without loading the full design system, so early ideation uses far fewer tokens.",
+    points: [
+      ["Made for ideation:", "PMs, BAs and business teams sketch features, modules and workflows as simple greyscale wireframes: structure, key sections, user actions and states."],
+      ["Lighter by design:", "it skips the full design-system reference, so Claude reads about 10 KB of skill instructions instead of about 122 KB for the full design skill."],
+      ["Right fidelity at the right time:", "teams agree the flow in wireframes first, then move to the full design skill for polished, on-brand UI."],
+      ["Product-focused output:", "short, copy-ready structure with data placeholders and simple business logic, not visual polish."]
+    ],
+    impact: [["~92% less", "skill context loaded"], ["Greyscale", "low-fidelity by design"], ["PMs & business", "self-serve ideation"]]
   }
   // ← add the next achievement here
 ];
@@ -647,6 +927,7 @@ const ICONS = {
   layers: '<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/>',
   chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
   chat: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8 11h8M8 14h5"/>',
+  wire: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11M13 13h4M13 16h3"/>',
   star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>'
 };
 const svg = (name, s = 20) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[name] || ICONS.star}</svg>`;
@@ -705,7 +986,7 @@ const VISUALS = {
     <div class="ds-grid">
       <div class="ds-tile"><small>Colour</small><div class="swatches"><i style="background:var(--accent)"></i><i style="background:var(--accent-2)"></i><i style="background:var(--accent-3)"></i><i style="background:var(--good)"></i></div></div>
       <div class="ds-tile"><small>Type</small><div style="font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1">Aa <span class="serif" style="font-size:24px">Aa</span></div></div>
-      <div class="ds-tile"><small>Button</small><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="btn-demo" style="background:var(--accent);color:#fff">Primary</span><span class="btn-demo" style="border:1px solid var(--line-strong)">Ghost</span></div></div>
+      <div class="ds-tile"><small>Button</small><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="btn-demo primary">Primary</span><span class="btn-demo ghost">Ghost</span></div></div>
       <div class="ds-tile"><small>Input</small><div class="input-demo">Vessel name…</div></div>
       <div class="ds-tile"><small>Toggle</small><div class="toggle"></div></div>
       <div class="ds-tile"><small>Badge</small><div class="badges"><span style="background:color-mix(in srgb,var(--good) 16%,transparent);color:var(--good)">Active</span><span style="background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)">Alert</span></div></div>
@@ -755,6 +1036,24 @@ const VISUALS = {
       <div class="suggest"><span>Compare with fleet average</span><span>Show fuel impact</span><span>Schedule cleaning</span></div>
     </div>`,
 
+  wire: () => `
+    <div class="vis-label"><span>Ideation, not polish</span><span>Skill context loaded</span></div>
+    <div class="tok">
+      <div class="tok-row"><span>Full design skill</span><div class="tok-bar"><i style="--w:100%"></i></div><b>≈122 KB</b></div>
+      <div class="tok-row lite"><span>Wireframe skill</span><div class="tok-bar"><i style="--w:8%"></i></div><b>≈10 KB</b></div>
+    </div>
+    <div class="wf" aria-hidden="true">
+      <div class="wf-top"><i></i><i class="s"></i><i class="btn"></i></div>
+      <div class="wf-body">
+        <div class="wf-side"><i></i><i></i><i></i><i></i></div>
+        <div class="wf-main">
+          <div class="wf-kpis"><i></i><i></i><i></i></div>
+          <div class="wf-card"><i class="l"></i><i></i><i></i><i class="m"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="prompt">${svg("spark",14)} “Wireframe a vessel inspection workflow”</div>`,
+
   generic: (a) => `
     <div class="vis-label"><span>${a.category}</span><span>Achievement</span></div>
     <div style="display:grid;place-items:center;min-height:240px;color:var(--accent)">${svg(a.icon || "star", 64)}</div>`
@@ -765,12 +1064,12 @@ const pad = n => String(n).padStart(2, "0");
 
 function renderStats() {
   const stats = [
-    [ACHIEVEMENTS.length, "Key achievements"],
-    [5, "Products contributed to"],
-    [ACHIEVEMENTS.filter(a => a.category === "AI").length, "AI-first initiatives"],
-    ["69+", "Live prototype URLs"]
+    ["69+", "Live prototype URLs"],
+    [5, "Products shipped across"],
+    [3, "AI-first initiatives"],
+    [1, "Design system behind them"]
   ];
-  document.getElementById("stats").innerHTML = stats.map(([n, l]) => `<div class="stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+  document.getElementById("stats").innerHTML = stats.map(([n, l]) => `<div class="stat"><div class="n" data-n="${n}">${n}</div><div class="l">${l}</div></div>`).join("");
 }
 
 function renderFilters() {
@@ -845,6 +1144,84 @@ document.getElementById("themeBtn").addEventListener("click", () => {
   root.dataset.theme = dark ? "light" : "dark";
   try { localStorage.setItem("ja-theme", root.dataset.theme); } catch (e) {}
 });
+</script>
+<script>
+/* Hero: grid lights up under the cursor, KPI numbers count up */
+(function () {
+  const hero = document.querySelector(".hero"), hot = hero.querySelector(".hero-grid.hot");
+  const motion = matchMedia("(prefers-reduced-motion: no-preference)").matches;
+  if (motion && matchMedia("(hover: hover)").matches) {
+    hero.addEventListener("pointermove", e => {
+      const r = hero.getBoundingClientRect();
+      hot.style.setProperty("--hx", `${e.clientX - r.left}px`);
+      hot.style.setProperty("--hy", `${e.clientY - r.top}px`);
+      hot.style.setProperty("--hot", 1);
+    });
+    hero.addEventListener("pointerleave", () => hot.style.setProperty("--hot", 0));
+  }
+  if (!motion) return;
+  const countUp = () => document.querySelectorAll(".stat .n[data-n]").forEach(el => {
+    const raw = el.dataset.n, target = parseInt(raw, 10), suffix = raw.replace(/^\d+/, "");
+    if (!target) return;
+    const t0 = performance.now() + 250, dur = 1400;
+    el.textContent = "0" + suffix;
+    const tick = now => {
+      const k = Math.min(1, Math.max(0, (now - t0) / dur)), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = Math.round(target * e) + suffix;
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+  // start when the KPI row scrolls into view
+  const statsEl = document.getElementById("stats");
+  document.querySelectorAll(".stat .n[data-n]").forEach(el => { if (parseInt(el.dataset.n, 10)) el.textContent = "0" + el.dataset.n.replace(/^\d+/, ""); });
+  const so = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { so.disconnect(); countUp(); } }, { threshold: 0.4 });
+  so.observe(statsEl);
+})();
+</script>
+<script>
+/* Concept 3: idea → prototype → live URLs, on a loop */
+(function () {
+  const demo = document.querySelector(".demo"), promptEl = document.getElementById("dPrompt");
+  const steps = [...document.querySelectorAll("#dSteps li")], proto = document.getElementById("dProto");
+  const urls = document.getElementById("dUrls"), title = document.getElementById("dTitle"), dev = document.getElementById("dDev");
+  const kpis = [...proto.querySelectorAll(".p-kpis b")];
+  const IDEAS = [
+    ["Build a vessel performance dashboard for Perform", "Vessel performance", "…/perform/vessel-performance", ["12.4 kn", "28.6 t", "B"]],
+    ["Plan an optimised voyage with weather routing", "Voyage optimisation", "…/vo/weather-routing", ["11.8 kn", "24.1 t", "A"]],
+    ["Show fleet emissions with a CII forecast", "Fleet emissions", "…/fleetiq/cii-forecast", ["13.0 kn", "31.2 t", "C"]]
+  ];
+  if (!matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    const [p, t, d, v] = IDEAS[0];
+    promptEl.textContent = p; title.textContent = t; dev.textContent = d;
+    kpis.forEach((k, i) => k.textContent = v[i]); steps.forEach(li => li.classList.add("done"));
+    proto.classList.add("on", "charted", "inspect"); urls.classList.add("on"); demo.classList.add("static");
+    return;
+  }
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  async function run(i) {
+    const [p, t, d, v] = IDEAS[i % IDEAS.length];
+    promptEl.textContent = ""; steps.forEach(li => li.className = "");
+    proto.classList.remove("on", "charted", "inspect"); urls.classList.remove("on");
+    kpis.forEach(k => k.textContent = "—"); title.textContent = t; dev.textContent = d;
+    await wait(500);
+    for (const ch of p) { promptEl.textContent += ch; await wait(28 + Math.random() * 40); }
+    await wait(350);
+    for (let s = 0; s < steps.length; s++) {
+      steps[s].classList.add("run");
+      if (s === 0) proto.classList.add("on");
+      if (s === 1) { proto.classList.add("charted"); kpis.forEach((k, j) => setTimeout(() => k.textContent = v[j], 150 * j)); }
+      await wait(900);
+      steps[s].classList.replace("run", "done");
+    }
+    proto.classList.add("inspect"); urls.classList.add("on");
+    await wait(3600);
+    run(i + 1);
+  }
+  // start once the demo is on screen
+  const o = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { o.disconnect(); run(0); } });
+  o.observe(demo);
+})();
 </script>
 </body>
 </html>
